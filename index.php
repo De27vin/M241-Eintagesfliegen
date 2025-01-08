@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $result = mysqli_query($connection, $sql);
 
-    
+
     $sql = "INSERT INTO `eintagesfliegen` ( `eintagesfliege_name`, `eintagesfliege_birthdate`) 
         VALUES ('$eintagesfliege_name', '$eintagesfliege_birthdate')";
     $result = mysqli_query($connection, $sql);
@@ -36,26 +36,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- VueJS App Container -->
 <div id="app">
-    <welcoming></welcoming>
-
-    <form action="index.php" method="post">
-        <div class="form">
-            <div class="title">Neue Fliege Hinzufügen</div>
-                <div class="input-container ic1">
-                    <input id="name" name="eintagesfliege_name" class="input" type="text" placeholder="" />
-                    <div class="cut"></div>
-                    <label for="name" class="placeholder">Name</label>
-                </div>
-                <div class="input-container ic2">
-                    <input id="name" name="eintagesfliege_birthdate" class="input" type="date" placeholder="" />
-                    <div class="cut"></div>
-                    <label for="date" class="placeholder">Geburtsdatum</label>
-                </div>
-            <button type="text" class="submit">Hinzufügen</button>
+    <div class="app-grid">
+        <!-- Welcoming component -->
+        <div class="welcoming-container">
+            <welcoming class="welcoming-component"></welcoming>
         </div>
-    </form>
 
-    
+        <!-- Form to add new Eintagesfliege -->
+        <form action="index.php" method="post">
+            <div class="form">
+                <div class="title">Neue Fliege Hinzufügen</div>
+                    <div class="input-container ic1">
+                        <input id="name" name="eintagesfliege_name" class="input" type="text" placeholder="" />
+                        <div class="cut"></div>
+                        <label for="name" class="placeholder">Name</label>
+                    </div>
+                    <div class="input-container ic2">
+                        <input id="name" name="eintagesfliege_birthdate" class="input" type="date" placeholder="" />
+                        <div class="cut"></div>
+                        <label for="date" class="placeholder">Geburtsdatum</label>
+                    </div>
+                <button type="text" class="submit">Hinzufügen</button>
+            </div>
+        </form>
+
+    </div>
 </div>
 
 <!-- PHP -->
