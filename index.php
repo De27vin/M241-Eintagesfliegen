@@ -12,19 +12,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $result = mysqli_query($connection, $sql);
 
-    $num = mysqli_num_rows($result);
+    
+    $sql = "INSERT INTO `eintagesfliegen` ( `eintagesfliege_name`, `eintagesfliege_birthdate`) 
+        VALUES ('$eintagesfliege_name', '$eintagesfliege_birthdate')";
+    $result = mysqli_query($connection, $sql);
 
-
-    if($num == 0) {
-
-        $sql = "INSERT INTO `eintagesfliegen` ( `eintagesfliege_name`, `eintagesfliege_birthdate`) 
-            VALUES ('$eintagesfliege_name', '$eintagesfliege_birthdate')";
-
-        $result = mysqli_query($connection, $sql);
-
-    } else {
-        die("Error adding new Eintagesfliege: " . mysqli_error($connection));
-    }
 };
 
 ?>
